@@ -43,6 +43,9 @@ export default function Home() {
           <li>
             <Link href="/services">サービス</Link>
           </li>
+          <li>
+            <Link href="/data">データ</Link>
+          </li>
         </ul>
       </nav>
     </div>
