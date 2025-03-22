@@ -6,31 +6,51 @@ import { useState } from "react";
 import Link from "next/link";
 
 function Greeting(props) {
-  return <h1>Hello, {props.name}!</h1>;
+  return (
+    <h1
+      style={{
+        borderLeft: "10px solid skyblue",
+        paddingLeft: "10px",
+      }}
+    >
+      {props.name}
+    </h1>
+  );
 }
 
-function ClickExample() {
+function ClickExample({ color = "skyblue", callback }) {
   const handleClick = () => {
-    alert('ボタンがクリックされました！');
+    callback();
   };
 
-  return <button onClick={handleClick}>Click Me</button>;
+  return (
+    <button onClick={handleClick} style={{ backgroundColor: color }}>
+      Click Me
+    </button>
+  );
 }
 
 export default function Home() {
   const [counter, setCounter] = useState(0);
+  // let counter = 0;
 
   return (
     <div className={styles.container}>
-      <Greeting name="React" /> {/* ここで指定した値がGreetingに渡る */}
+      <Greeting name="Next.jsの2025年における〜〜" />{" "}
+      {/* ここで指定した値がGreetingに渡る */}
       <div>
         <p>カウンター: {counter}</p>
         <button onClick={() => setCounter(counter + 1)}>カウントアップ</button>
+        {/* <button onClick={() => counter = counter + 1}>カウントアップ</button> */}
       </div>
-      <ClickExample/>
-
-      <nav style={{marginTop: "2rem"}}>
-        <ul style={{listStyle: "none", display: "flex", gap: "1rem"}}>
+      <ClickExample
+        color="skyblue"
+        callback={() => {
+          document.body.style.backgroundColor = "gray";
+        }}
+      />
+      <nav style={{ marginTop: "2rem" }}>
+        <ul style={{ listStyle: "none", display: "flex", gap: "1rem" }}>
           <li>
             <Link href="/">ホーム</Link> {/* linkではなくLink */}
           </li>
@@ -51,4 +71,3 @@ export default function Home() {
     </div>
   );
 }
-
