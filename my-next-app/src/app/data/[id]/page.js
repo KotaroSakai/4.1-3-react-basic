@@ -1,5 +1,5 @@
 export default async function Post ({params}) {
-  const {id} = params;
+  const {id} = await params;
   console.log({id});
   
   // 外部APIから投稿データを取得（例: jsonplaceholder）
