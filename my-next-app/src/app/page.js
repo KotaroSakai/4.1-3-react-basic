@@ -6,7 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 function Greeting(props) {
-  return <h1>Hello, {props.name}!</h1>;
+  return <h1 className={styles.greeting}>Hello, {props.name}!</h1>;
 }
 
 function ClickExample() {
@@ -14,7 +14,7 @@ function ClickExample() {
     alert('ボタンがクリックされました！');
   };
 
-  return <button onClick={handleClick}>Click Me</button>;
+  return <button className={styles.button} onClick={handleClick}>Click Me</button>;
 }
 
 export default function Home() {
@@ -24,8 +24,8 @@ export default function Home() {
     <div className={styles.container}>
       <Greeting name="React" /> {/* ここで指定した値がGreetingに渡る */}
       <div>
-        <p>カウンター: {counter}</p>
-        <button onClick={() => setCounter(counter + 1)}>カウントアップ</button>
+        <p className={styles.counter}>カウンター: {counter}</p>
+        <button className={styles.button} onClick={() => setCounter(counter + 1)}>カウントアップ</button>
       </div>
       <ClickExample/>
 
